@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>わたしを解き放つ学校 — 50代からのクリエイティブ自由学</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- OGP Settings -->
+    <meta property="og:title" content="わたしを解き放つ学校">
+    <meta property="og:description" content="50代からのクリエイティブ自由学。「AIでこんなことができる！」を体験で手に入れる6か月。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/tokihana.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Variables - matching orientation LP */
+        :root {
+            --bg-color: #fdfbf8;
+            --text-color: #4a403a;
+            --accent-color: #d8a47f; /* Soft gold/peach */
+            --accent-hover: #c48a60;
+            --secondary-bg: #f9f4f0;
+            --primary-floral: #e8dedf;
+            --light-shadow: rgba(0, 0, 0, 0.06);
+            --border-color: rgba(240, 235, 230, 0.8);
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section { padding: 80px 0; }
+        @media (max-width: 768px) { section { padding: 60px 0; } }
+
+        .bg-white { background-color: #fff; }
+        .bg-secondary { background-color: var(--secondary-bg); }
+        .bg-floral { background-color: var(--primary-floral); }
+
+        /* Titles */
+        .sec-title { text-align: center; margin-bottom: 50px; }
+        .sec-title span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            letter-spacing: 0.15em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .sec-title h2 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            color: var(--text-color);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+            background: linear-gradient(145deg, #fbf7f4 0%, #f6f0ea 100%);
+            padding-bottom: 80px;
+            padding-top: 40px;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; opacity: 0.4;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(225, 203, 221, 0.5) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(206, 217, 235, 0.5) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(246, 234, 216, 0.4) 0%, transparent 50%);
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            text-align: center; width: 100%; max-width: 800px; padding: 0 20px;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        .hero-image-container {
+            margin: 0 auto 30px; width: 100%; max-width: 460px; position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero-image-container::before {
+            content: ''; position: absolute;
+            top: -10%; left: -10%; right: -10%; bottom: -10%;
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%);
+            z-index: -1; border-radius: 50%; filter: blur(10px);
+        }
+        .hero-img {
+            width: 100%; border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .catchphrase {
+            color: #614d50; font-size: clamp(1.2rem, 3.5vw, 1.4rem); letter-spacing: 0.1em;
+            line-height: 1.6; font-weight: 400; margin-bottom: 30px;
+        }
+        .school-name {
+            display: inline-block; font-size: 1rem; color: #83756d; margin-bottom: 15px;
+            letter-spacing: 0.15em; padding: 4px 16px; border-bottom: 1px solid rgba(216, 164, 127, 0.4);
+        }
+        .main-title {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem); line-height: 1.4; margin-bottom: 5px;
+            font-weight: 400; color: #4a403a; letter-spacing: 0.1em;
+        }
+        .subtitle {
+            font-size: clamp(0.9rem, 2vw, 1.1rem); margin-bottom: 35px;
+            font-weight: 300; color: #8c7e75; letter-spacing: 0.15em;
+        }
+
+        /* Buttons */
+        .cta-container { text-align: center; margin-top: 30px; }
+        .cta-button {
+            display: inline-flex; align-items: center; justify-content: center; flex-direction: column;
+            background: linear-gradient(135deg, var(--accent-color), #deaf8f);
+            color: white; padding: 18px 45px; border-radius: 40px;
+            font-size: 1.15rem; font-weight: 500; letter-spacing: 0.1em;
+            transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(216, 164, 127, 0.4);
+            position: relative; overflow: hidden;
+        }
+        .cta-button .sub-text { font-size: 0.85rem; font-weight: 300; letter-spacing: 0.05em; margin-top: 5px; opacity: 0.9; }
+        .cta-button::after {
+            content: '〉'; position: absolute; right: 25px; top: 50%; transform: translateY(-50%); font-size: 1rem; transition: transform 0.3s;
+        }
+        .cta-button::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: all 0.6s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px); box-shadow: 0 12px 30px rgba(216, 164, 127, 0.5);
+            background: linear-gradient(135deg, var(--accent-hover), #d29e7b);
+        }
+        .cta-button:hover::before { left: 100%; }
+        .cta-button:hover::after { transform: translate(4px, -50%); }
+
+        @media (max-width: 768px) {
+            .cta-button { width: 100%; padding: 15px 20px; }
+        }
+
+        /* Empathy */
+        .empathy-list { max-width: 650px; margin: 0 auto; }
+        .empathy-list li {
+            background: #fff; padding: 20px 25px; border-radius: 12px; margin-bottom: 15px;
+            position: relative; padding-left: 50px; box-shadow: 0 5px 15px var(--light-shadow);
+            color: #5d514a; font-size: 1.05rem;
+        }
+        .empathy-list li::before {
+            content: '🌿'; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 1.2rem;
+        }
+        .empathy-msg {
+            text-align: center; margin-top: 40px; font-size: 1.15rem; color: #83756d; line-height: 1.8; font-weight: 400; padding: 20px; border-top: 1px solid rgba(216, 164, 127, 0.3); border-bottom: 1px solid rgba(216, 164, 127, 0.3);
+        }
+
+        /* Transform */
+        .transform-box { display: flex; flex-direction: column; gap: 20px; max-width: 700px; margin: 0 auto; }
+        .transform-item {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #fff; border-radius: 50px; padding: 20px 30px;
+            box-shadow: 0 5px 20px var(--light-shadow); text-align: center;
+        }
+        @media (max-width: 600px) {
+            .transform-item { flex-direction: column; border-radius: 20px; gap: 15px; }
+        }
+        .before { color: #888; font-size: 1rem; flex: 1; }
+        .arrow { color: var(--accent-color); font-size: 1.5rem; }
+        .after { color: #635048; font-size: 1.1rem; font-weight: 500; flex: 1; }
+        
+        .essence {
+            background: linear-gradient(135deg, #fffaf7, #f6eae1); 
+            padding: 50px 40px; border-radius: 20px;
+            margin-top: 60px; text-align: center; max-width: 750px; margin-left: auto; margin-right: auto;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(216, 164, 127, 0.2);
+            border: 3px solid #fff;
+        }
+        .essence::before {
+            content: '✨'; position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 1.6rem; background: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px var(--light-shadow);
+        }
+        .essence p { font-weight: 500; color: #4a403a; margin-bottom: 20px; font-size: 1.4rem; letter-spacing: 0.05em; line-height: 1.6; }
+        .essence .small { font-size: 1.05rem; color: #635048; font-weight: 400; line-height: 1.9; }
+        .essence .highlight { color: #c48a60; font-weight: 600; border-bottom: 2px solid rgba(216, 164, 127, 0.4); padding-bottom: 2px; }
+        
+        /* Story Timeline */
+        .story-timeline { position: relative; max-width: 500px; margin: 0 auto; padding-left: 30px; }
+        .story-timeline::before {
+            content: ''; position: absolute; left: 6px; top: 5px; bottom: 5px; width: 2px;
+            background: linear-gradient(to bottom, var(--accent-color), transparent); opacity: 0.5;
+        }
+        .story-step { position: relative; margin-bottom: 35px; }
+        .story-step::before {
+            content: ''; position: absolute; left: -30px; top: 6px; width: 14px; height: 14px;
+            border-radius: 50%; background: var(--accent-color); box-shadow: 0 0 0 4px var(--bg-color);
+        }
+        .story-month { font-size: 0.9rem; color: var(--accent-color); font-weight: 500; margin-bottom: 5px; letter-spacing: 0.1em; }
+        .story-title { font-size: 1.1rem; color: #5d514a; font-weight: 500; }
+
+        /* Phases */
+        .phase-card {
+            background: #fff; border-radius: 20px; overflow: hidden; margin-bottom: 40px;
+            box-shadow: 0 10px 30px var(--light-shadow); border: 1px solid var(--border-color);
+        }
+        .phase-head { padding: 40px 30px; text-align: center; background-color: var(--secondary-bg); position: relative; }
+        .phase-label {
+            display: inline-block; font-size: 0.85rem; letter-spacing: 0.1em;
+            margin-bottom: 15px; padding: 6px 20px; border-radius: 30px;
+            background: #fff; color: var(--accent-hover); box-shadow: 0 2px 10px var(--light-shadow);
+        }
+        .phase-title { font-size: 1.6rem; color: #4a403a; line-height: 1.5; margin-bottom: 10px; }
+        .phase-title span { font-size: 1rem; display: block; margin-top: 10px; color: #83756d; font-family: 'Zen Kaku Gothic New', sans-serif; }
+        .phase-tools { font-size: 0.9rem; color: #a47e62; margin-top: 15px; letter-spacing: 0.05em; }
+        
+        .phase-body { padding: 30px; }
+        .course-day { margin-bottom: 25px; border-left: 2px solid var(--primary-floral); padding-left: 20px; }
+        .course-day:last-child { margin-bottom: 0; }
+        .day-title { font-weight: 500; color: #635048; margin-bottom: 10px; font-size: 1.1rem; }
+        .day-task { font-size: 0.95rem; margin-bottom: 8px; color: #5d514a; }
+        .day-prac { font-size: 0.95rem; color: #776e65; background: var(--bg-color); padding: 15px; border-radius: 12px; }
+
+        /* Outputs */
+        .output-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 600px) { .output-grid { grid-template-columns: repeat(2, 1fr); } }
+        .output-item {
+            background: #fff; padding: 25px 20px; border-radius: 16px; display: flex; align-items: center; gap: 15px;
+            box-shadow: 0 5px 20px var(--light-shadow); border: 1px solid var(--border-color); transition: transform 0.3s;
+        }
+        .output-item:hover { transform: translateY(-3px); }
+        .output-icon {
+            width: 50px; height: 50px; background: var(--secondary-bg); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;
+            color: var(--accent-color); /* For emojis fallback */
+        }
+        .output-text { font-weight: 500; color: #5d514a; line-height: 1.4; }
+        .output-text span { font-size: 0.85rem; color: #9a8f89; font-weight: 300; display: block; margin-top: 5px; }
+
+        /* Features */
+        .feature-box {
+            text-align: center; padding: 40px 30px; background: #fff; border-radius: 20px;
+            margin-bottom: 30px; box-shadow: 0 5px 20px var(--light-shadow); border: 1px solid var(--border-color);
+        }
+        .feature-icon { font-size: 3rem; margin-bottom: 20px; }
+        .feature-box h3 { color: #635048; margin-bottom: 15px; font-size: 1.4rem; }
+        .feature-box p { color: #776e65; }
+
+        /* Pricing */
+        .price-wrap { display: flex; flex-direction: column; gap: 30px; margin-top: 20px; }
+        @media (min-width: 768px) { .price-wrap { flex-direction: row; align-items: stretch; } .price-card { flex: 1; } }
+        .price-card {
+            background: #fff; border-radius: 20px; padding: 40px 30px; box-shadow: 0 10px 30px var(--light-shadow);
+            position: relative; border: 2px solid transparent; display: flex; flex-direction: column;
+        }
+        .price-card.recommend { border-color: var(--accent-color); transform: scale(1.02); z-index: 1; }
+        @media (max-width: 768px) { .price-card.recommend { transform: none; } }
+        .badge {
+            position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+            background: var(--accent-color); color: #fff; padding: 8px 25px; border-radius: 30px;
+            font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; box-shadow: 0 4px 10px rgba(216, 164, 127, 0.4);
+        }
+        .price-title { text-align: center; font-size: 1.3rem; font-weight: 500; margin-bottom: 20px; color: #83756d; }
+        .price-amount { text-align: center; font-size: 2.5rem; color: #4a403a; margin-bottom: 30px; }
+        .price-amount span { font-size: 1rem; color: #83756d; font-family: 'Zen Kaku Gothic New', sans-serif;}
+        .price-list { font-size: 0.95rem; color: #5d514a; margin-bottom: 20px; flex-grow: 1; }
+        .price-list li { padding: 12px 0; border-bottom: 1px dashed rgba(216, 164, 127, 0.3); display: flex; justify-content: space-between; }
+        .price-list li:last-child {
+            border-bottom: none; font-weight: 500; color: #635048; padding-top: 20px; margin-top: 10px; border-top: 1px solid rgba(216, 164, 127, 0.4);
+        }
+        .price-note { font-size: 0.85rem; color: #a47e62; text-align: center; }
+        
+        .schedule-note {
+            background: var(--secondary-bg); padding: 30px; border-radius: 16px; margin-top: 40px;
+            font-size: 0.95rem; border: 1px solid var(--border-color); color: #776e65; text-align: center;
+        }
+
+        /* Flow */
+        .flow-step {
+            display: flex; align-items: flex-start; margin-bottom: 20px; background: #fff; padding: 25px;
+            border-radius: 16px; box-shadow: 0 5px 15px var(--light-shadow);
+        }
+        .flow-num {
+            background: var(--accent-color); color: #fff; width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 1.1rem;
+            margin-right: 20px; flex-shrink: 0; font-family: 'Noto Serif JP', serif;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: #fff; border-radius: 16px; margin-bottom: 20px; padding: 25px 30px;
+            box-shadow: 0 5px 15px var(--light-shadow);
+        }
+        .faq-q { font-weight: 500; color: #635048; margin-bottom: 12px; display: flex; gap: 10px; font-size: 1.05rem; }
+        .faq-q::before { content: 'Q.'; font-family: 'Noto Serif JP', serif; color: var(--accent-color); }
+        .faq-a { font-size: 0.95rem; padding-left: 28px; color: #776e65; position: relative; line-height: 1.8; }
+        .faq-a::before { content: 'A.'; position: absolute; left: 0; font-family: 'Noto Serif JP', serif; color: #c4b9b3; }
+
+        /* Profile */
+        .profile-box {
+            display: flex; flex-direction: column; align-items: center; gap: 30px;
+            background: #fff; padding: 50px 40px; border-radius: 20px; box-shadow: 0 10px 30px var(--light-shadow);
+        }
+        @media (min-width: 768px) { .profile-box { flex-direction: row; align-items: flex-start; } }
+        .profile-img {
+            width: 140px; height: 140px; border-radius: 50%; background: var(--secondary-bg);
+            display: flex; align-items: center; justify-content: center; font-size: 3.5rem; flex-shrink: 0;
+            border: 4px solid var(--primary-floral);
+        }
+        .profile-text h3 { font-size: 1.6rem; margin-bottom: 5px; color: #4a403a; }
+        .profile-text .role { color: var(--accent-color); font-size: 0.95rem; letter-spacing: 0.1em; margin-bottom: 20px; }
+        .profile-text p { color: #5d514a; font-size: 0.95rem; line-height: 1.9; }
+
+        /* Footer */
+        footer {
+            background-color: #f4efed; padding: 40px 20px; text-align: center;
+            color: #9a8f89; font-size: 0.85rem; letter-spacing: 0.1em;
+        }
+
+        /* Mobile Responsive Tweaks for Inline Styles */
+        @media (max-width: 600px) {
+            .essence { padding: 30px 20px !important; margin-top: 40px !important; }
+            .essence::before { top: -20px !important; font-size: 1.3rem !important; width: 40px !important; height: 40px !important; }
+            .schedule-note { padding: 25px 15px !important; }
+            .schedule-note > div {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                display: block !important;
+                width: 100% !important;
+            }
+            .schedule-note div[style*="display: flex"] { flex-wrap: wrap; }
+            .phase-card .phase-head { padding: 30px 20px !important; }
+            .phase-card .phase-body { padding: 25px 15px !important; }
+            .transform-item { padding: 20px 15px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="catchphrase serif">
+                心をほどいて、<br>手を動かす。
+            </div>
+            <div class="hero-image-container">
+                <img src="images/tokihana.png" alt="わたしを解き放つ学校 メインビジュアル" class="hero-img">
+            </div>
+            
+            <div class="school-name serif">50代からのクリエイティブ自由学</div>
+            <h1 class="main-title serif">
+                わたしを解き放つ学校
+            </h1>
+            <p class="subtitle" style="margin-bottom: 15px;">
+                略称：ときはな学校
+            </p>
+            
+            <div class="catchphrase serif" style="font-size: clamp(1.3rem, 4vw, 1.7rem); color: var(--accent-hover); margin-bottom: 35px; letter-spacing: 0.15em;">
+                ＡＩ <span style="font-size:0.8em; margin: 0 4px; font-family: 'Zen Kaku Gothic New', sans-serif;">x</span> スピリチュアル
+            </div>
+            
+            <p style="font-size: 1.1rem; color: #635048; line-height: 1.8; margin-bottom: 20px;">
+                「AIでこんなことができる！」を<br>
+                体験で手に入れる6か月。
+            </p>
+
+            <div class="cta-container">
+                <a href="https://ssl.formman.com/t/SWIk/" class="cta-button" target="_blank" rel="noopener noreferrer">
+                    申し込みはこちら
+                    <span class="sub-text">定員20名</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 共感セクション -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="sec-title">
+                <span>こんな気持ちありませんか？</span>
+                <h2 class="serif">AI時代、私だけが取り<br>残されているかも…</h2>
+            </div>
+            
+            <ul class="empathy-list">
+                <li>スピリチュアルに関心があるけれど、現実をどう変えていいかわからない</li>
+                <li>AIに興味はあるけれど、難しそうで怖い、手が出せない</li>
+                <li>自分を表現したい気持ちはあるのに、いつも一歩が踏み出せない</li>
+                <li>「私には才能がない」「もう若くない」と理由をつけて諦めてしまう</li>
+            </ul>
+
+            <div class="empathy-msg serif">
+                大丈夫。<br>
+                その「一歩踏み出したい」気持ちさえあれば、<br>
+                AIはあなたの最強の味方になります。
+            </div>
+        </div>
+    </section>
+
+    <!-- 変換セクション -->
+    <section class="bg-secondary">
+        <div class="container">
+            <div class="sec-title">
+                <span>Transformation</span>
+                <h2 class="serif">この講座で起こる、<br>あなたの変化</h2>
+            </div>
+
+            <div class="transform-box">
+                <div class="transform-item">
+                    <div class="before">AIって難しそう…</div>
+                    <div class="arrow">→</div>
+                    <div class="after">「こんなことまでできるの!?」<br>とワクワクする毎日に！</div>
+                </div>
+                <div class="transform-item">
+                    <div class="before">自分を表現するのが怖い</div>
+                    <div class="arrow">→</div>
+                    <div class="after">息を吐くように<br>自然なアウトプット習慣が身につく</div>
+                </div>
+                <div class="transform-item">
+                    <div class="before">失敗したくない・できないループ</div>
+                    <div class="arrow">→</div>
+                    <div class="after">「体験」を通して<br>どんな自分も肯定できるようになる</div>
+                </div>
+            </div>
+
+            <div class="essence">
+                <p class="serif">生きる力を高めるのが<br>「<span class="highlight">スピリチュアルの真の使い道</span>」です。</p>
+                <div class="small">
+                    これからは、ただ教えてもらう「おりこうさんのスピリチュアル」ではなく、<br>自らの手で世界を創り出す<span class="highlight" style="font-size: 1.15rem;">「サバイバルセンス（自分を生かす力）」</span>を育てることが大切です！
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 70px; animation: float 8s ease-in-out infinite;">
+                <img src="images/tokihana2.png" alt="クリエイティブな世界" style="max-width: 100%; width: 450px; border-radius: 24px; box-shadow: 0 15px 40px rgba(216, 164, 127, 0.2); border: 4px solid #fff;">
+            </div>
+        </div>
+    </section>
+
+    <!-- 6カ月のストーリー -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="sec-title">
+                <span>Story of 6 months</span>
+                <h2 class="serif">ひとつの世界観が育っていく、<br>6か月の旅路</h2>
+            </div>
+
+            <div class="story-timeline">
+                <div class="story-step">
+                    <div class="story-month">5月・START</div>
+                    <div class="story-title">自分を知り、世界観の基礎を創る</div>
+                </div>
+                <div class="story-step">
+                    <div class="story-month">6月</div>
+                    <div class="story-title">わたしの世界観をデザインで展開する</div>
+                </div>
+                <div class="story-step">
+                    <div class="story-month">7月</div>
+                    <div class="story-title">あなたの世界に命（＝言葉）を吹き込む</div>
+                </div>
+                <div class="story-step">
+                    <div class="story-month">8月</div>
+                    <div class="story-title">感性を言葉にする。そして言葉を自分のものにする</div>
+                </div>
+                <div class="story-step">
+                    <div class="story-month">9月</div>
+                    <div class="story-title">あなたの世界観を「音という波動」に変換する</div>
+                </div>
+                <div class="story-step">
+                    <div class="story-month">10月・GOAL</div>
+                    <div class="story-title">統合：わたしの創造性を解き放つ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- カリキュラム詳細 -->
+    <section class="bg-secondary">
+        <div class="container">
+            <div class="sec-title">
+                <span>Curriculum</span>
+                <h2 class="serif">各フェーズで学ぶこと</h2>
+            </div>
+
+            <!-- PHASE 1 -->
+            <div class="phase-card">
+                <div class="phase-head">
+                    <div class="phase-label">PHASE 1 : 5月・6月</div>
+                    <h3 class="phase-title serif">AI画像生成<br><span>見えないものを見る。ビジョンを言葉にし、形にする</span></h3>
+                    <div class="phase-tools">使用ツール：Canva / Seedream / ChatGPT</div>
+                </div>
+                <div class="phase-body">
+                    <div class="course-day">
+                        <div class="day-title">第1回（5月）: わたしという世界の色</div>
+                        <div class="day-task"><strong>課題設定:</strong> 「自分とは何か」を考え、世界観・色・イメージを言語化する。</div>
+                        <div class="day-prac"><strong>実践:</strong> 自分の顔写真を加工・デザイン化してSNSアイコンに。ブランドロゴや名刺データをAIで制作し、自己紹介プレゼン資料を作ります。</div>
+                    </div>
+                    <div class="course-day">
+                        <div class="day-title">第2回（6月）: ビジョンの具現化</div>
+                        <div class="day-task"><strong>課題設定:</strong> オラクルカード（図柄のみ）20枚分のイメージ原案を言葉にします。</div>
+                        <div class="day-prac"><strong>実践:</strong> オラクルカード20枚の画像を生成し、デザインとして仕上げます。（※デジタル画像として完成）</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 2 -->
+            <div class="phase-card">
+                <div class="phase-head" style="background-color: #f5efe7;">
+                    <div class="phase-label">PHASE 2 : 7月・8月</div>
+                    <h3 class="phase-title serif">AI実践活用<br><span>書くことは自分を表現すること。「うまく書かねば」の呪縛を解く</span></h3>
+                    <div class="phase-tools">使用ツール：Claude / ChatGPT / NotebookLM</div>
+                </div>
+                <div class="phase-body">
+                    <div class="course-day">
+                        <div class="day-title">第3回（7月）: 言葉を磨く・展開する</div>
+                        <div class="day-task"><strong>課題設定:</strong> オラクルカード20枚のメッセージを書く。日常や仕事でのAI活用シーンを見つける。</div>
+                        <div class="day-prac"><strong>実践:</strong> AIを使ってカードの文言を磨き上げます。文章を、動画・インフォグラフィック・音声へと展開します。（NotebookLM使用）</div>
+                    </div>
+                    <div class="course-day">
+                        <div class="day-title">第4回（8月）: 発信と自分の言葉</div>
+                        <div class="day-task"><strong>課題設定:</strong> ブログを立ち上げ（Ameblo / Substack等）、自らの語り口と発信テーマを決める。</div>
+                        <div class="day-prac"><strong>実践:</strong> AIにオラクルカードのリーディング内容を出力させ、それを自分の解釈として語る練習をします。ブログ記事をAIで書き、その場で公開します。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 3 -->
+            <div class="phase-card">
+                <div class="phase-head" style="background-color: #f1efeb;">
+                    <div class="phase-label">PHASE 3 : 9月・10月</div>
+                    <h3 class="phase-title serif">AI音楽制作<br><span>世界観を「音＝波動」で表現する。半年間の学びの統合</span></h3>
+                    <div class="phase-tools">使用ツール：Claude / ChatGPT / Suno / Canva</div>
+                </div>
+                <div class="phase-body">
+                    <div class="course-day">
+                        <div class="day-title">第5回（9月）: 音で世界観を作る</div>
+                        <div class="day-task"><strong>課題設定:</strong> 画像・文章・カードから見えてきた「自分の世界観」を改めて言葉にする。</div>
+                        <div class="day-prac"><strong>実践:</strong> Sunoを使って自分の世界観に合う音楽をひたすらクリエイト。ClaudeやChatGPTで歌詞をブラッシュアップし、様々なジャンルの音楽を生成する</div>
+                    </div>
+                    <div class="course-day">
+                        <div class="day-title">第6回（10月）: 音 x 動画 で世界観を深める</div>
+                        <div class="day-task"><strong>課題設定:</strong> 楽曲とMV動画の最終仕上げを行い、6か月の全作品を振り返る。</div>
+                        <div class="day-prac"><strong>実践:</strong> 楽曲・MV動画を発表。カード・ブログ・音楽など全作品を「自己紹介」にまとめる</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-container">
+                <a href="https://ssl.formman.com/t/SWIk/" class="cta-button" target="_blank" rel="noopener noreferrer">
+                    参加を申し込む
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 手元に残るもの -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="sec-title">
+                <span>Outputs</span>
+                <h2 class="serif">6か月後、あなたの手元に<br>残る6つのもの</h2>
+            </div>
+
+            <div class="output-grid">
+                <div class="output-item">
+                    <div class="output-icon">🌸</div>
+                    <div class="output-text">① SNSアイコン<br><span>（自分の顔をデザイン化）</span></div>
+                </div>
+                <div class="output-item">
+                    <div class="output-icon">✨</div>
+                    <div class="output-text">② ブランドロゴ・名刺<br><span>（デジタルデータ）</span></div>
+                </div>
+                <div class="output-item">
+                    <div class="output-icon">🃏</div>
+                    <div class="output-text">③ 自作オラクルカード20枚<br><span>（デジタル画像）</span></div>
+                </div>
+                <div class="output-item">
+                    <div class="output-icon">💻</div>
+                    <div class="output-text">④ ブログ<br><span>（公開済み記事の資産）</span></div>
+                </div>
+                <div class="output-item">
+                    <div class="output-icon">📊</div>
+                    <div class="output-text">⑤ 各種コンテンツ<br><span>（動画・音声・図解）</span></div>
+                </div>
+                <div class="output-item">
+                    <div class="output-icon">🎵</div>
+                    <div class="output-text">⑥ 楽曲 ＋ MV動画<br><span>（あなたの世界観を音に）</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特徴・日程 -->
+    <section class="bg-secondary">
+        <div class="container">
+            <div class="sec-title">
+                <span>Features</span>
+                <h2 class="serif">授業の特徴</h2>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">🤝</div>
+                <h3 class="serif">安心の伴走スタイル</h3>
+                <p>「わからない」「ついていけない」を放置せず、お互いに刺激を受け合いながら、ゆっくりと丁寧に進めていきます。</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">🌿</div>
+                <h3 class="serif">毎月2回・合計42時間の濃厚な体験</h3>
+                <p>
+                    <strong>平日オンライン（Zoom）：約1時間</strong><br>
+                    マインドセットやビジョンの言語化を行います。<br><br>
+                    <strong>休日オフライン（会場）：約6時間</strong><br>
+                    実際に手を動かしてAIツールに触れ、作品を創り上げます。
+                </p>
+            </div>
+
+            <div class="schedule-note" style="background-color: #fffaf7; border: 2px solid var(--accent-color); box-shadow: 0 8px 25px rgba(216, 164, 127, 0.2); border-radius: 16px; padding: 35px 30px;">
+                <h4 class="serif" style="color:var(--accent-hover); margin-bottom:15px; font-size: 1.25rem; letter-spacing: 0.1em;">📅 日程について（重要）</h4>
+
+                <div style="background: rgba(255,255,255,0.7); border: 1px dashed var(--accent-hover); border-radius: 10px; padding: 15px 25px; margin-bottom: 20px; display: inline-block; text-align: left;">
+                    <div style="font-weight: 600; color: #4a403a; margin-bottom: 5px;">📍 会場</div>
+                    <div style="font-size: 1rem; color: #5d514a; font-weight: 500;">六本木一丁目駅 徒歩3分</div>
+                    <div style="font-size: 0.85rem; color: #83756d; margin-top: 4px;">※ご参加の方に詳細をお伝えします</div>
+                </div>
+
+                <p style="color: #5d514a; font-size: 1rem; line-height: 1.9; margin-bottom: 15px;">
+                    PHASE 1（5月・6月）の日程はすでに確定しております。
+                </p>
+
+                <div style="background: #fff; border-radius: 12px; padding: 25px 35px; margin-bottom: 20px; text-align: left; box-shadow: 0 8px 20px rgba(0,0,0,0.06); display: inline-block; border-left: 6px solid var(--accent-color);">
+                    <div style="margin-bottom: 20px;">
+                        <span style="display:inline-block; font-weight: 600; color: var(--accent-hover); font-size: 1.1rem; border-bottom: 2px solid rgba(216, 164, 127, 0.4); margin-bottom: 10px; padding-bottom: 2px;">＊第１回</span>
+                        <div style="margin-bottom: 6px; display: flex; align-items: center;">
+                            <span style="display:inline-block; background: var(--secondary-bg); color: #83756d; font-size: 0.85rem; padding: 3px 12px; border-radius: 20px; margin-right: 12px; font-weight: 600; min-width: 65px; text-align: center;">Zoom</span>
+                            <span><strong style="font-size: 1.05rem; color: #4a403a;">５月１３日（水）</strong> <span style="color: #635048; font-size: 0.95rem;">２０：００（１時間）</span></span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <span style="display:inline-block; background: #ebd5cd; color: #635048; font-size: 0.85rem; padding: 3px 12px; border-radius: 20px; margin-right: 12px; font-weight: 600; min-width: 65px; text-align: center;">会 場</span>
+                            <span><strong style="font-size: 1.05rem; color: #4a403a;">５月２３日（土）</strong> <span style="color: #635048; font-size: 0.95rem;">１０：００～１７：００（途中休憩あり）</span></span>
+                        </div>
+                    </div>
+                    <div>
+                        <span style="display:inline-block; font-weight: 600; color: var(--accent-hover); font-size: 1.1rem; border-bottom: 2px solid rgba(216, 164, 127, 0.4); margin-bottom: 10px; padding-bottom: 2px;">＊第２回</span>
+                        <div style="margin-bottom: 6px; display: flex; align-items: center;">
+                            <span style="display:inline-block; background: var(--secondary-bg); color: #83756d; font-size: 0.85rem; padding: 3px 12px; border-radius: 20px; margin-right: 12px; font-weight: 600; min-width: 65px; text-align: center;">Zoom</span>
+                            <span><strong style="font-size: 1.05rem; color: #4a403a;">６月１０日（水）</strong> <span style="color: #635048; font-size: 0.95rem;">２０：００（１時間）</span></span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <span style="display:inline-block; background: #ebd5cd; color: #635048; font-size: 0.85rem; padding: 3px 12px; border-radius: 20px; margin-right: 12px; font-weight: 600; min-width: 65px; text-align: center;">会 場</span>
+                            <span><strong style="font-size: 1.05rem; color: #4a403a;">６月２１日（日）</strong> <span style="color: #635048; font-size: 0.95rem;">１０：００～１７：００（途中休憩あり）</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="color: #5d514a; font-size: 1rem; line-height: 1.9; margin: 0;">
+                    PHASE 2・3の日程は、皆さまの進行に合わせ、<br>
+                    <strong style="color: var(--accent-hover); font-weight: 600; border-bottom: 2px solid rgba(216, 164, 127, 0.5); padding-bottom: 2px;">前フェーズ修了後に確定次第ご案内する形</strong>となります。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金プラン -->
+    <section class="bg-white" id="pricing">
+        <div class="container">
+            <div class="sec-title">
+                <span>Pricing</span>
+                <h2 class="serif">料金プラン</h2>
+            </div>
+            <p style="text-align:center; margin-bottom:40px; color:#635048;">あなたのペースに合わせて、2つのプランからお選びいただけます。</p>
+
+            <div class="price-wrap">
+                <!-- 都度払い -->
+                <div class="price-card">
+                    <div class="price-title">都度払いプラン</div>
+                    <div class="price-amount serif">¥165,000<span>(税込)</span></div>
+                    <ul class="price-list">
+                        <li><span>申込時デポジット</span><span>¥11,000</span></li>
+                        <li><span>PHASE 1 (開講1週間前)</span><span>¥44,000</span></li>
+                        <li><span>PHASE 2 (6月末案内時)</span><span>¥55,000</span></li>
+                        <li><span>PHASE 3 (8月末案内時)</span><span>¥55,000</span></li>
+                        <li><span>トータル合計</span><span>¥165,000</span></li>
+                    </ul>
+                    <p class="price-note">※デポジットは席確保と準備充当のため<br>返金不可となります。</p>
+                </div>
+
+                <!-- 一括払い -->
+                <div class="price-card recommend">
+                    <div class="badge">おすすめ・¥22,000お得</div>
+                    <div class="price-title" style="color:var(--accent-hover);">一括払いプラン</div>
+                    <div class="price-amount serif" style="color:var(--accent-hover);">¥143,000<span>(税込)</span></div>
+                    <ul class="price-list">
+                        <li><span>申込時に全額お支払い</span><span>¥143,000</span></li>
+                        <li style="visibility:hidden;"><span>-</span><span>-</span></li>
+                        <li style="visibility:hidden;"><span>-</span><span>-</span></li>
+                        <li><span>PHASE2・3追加支払い</span><span>なし</span></li>
+                        <li><span>トータル合計</span><span style="color:var(--accent-hover);">¥143,000</span></li>
+                    </ul>
+                    <p class="price-note" style="color:#776e65;">※後から日程が決まっても追加の<br>お支払いはありません。<br>※最もお得にご受講いただけるプランです。</p>
+                </div>
+            </div>
+
+            <div class="cta-container" style="margin-top: 60px;" id="apply">
+                <a href="https://ssl.formman.com/t/SWIk/" class="cta-button" target="_blank" rel="noopener noreferrer">
+                    参加を申し込む
+                    <span class="sub-text">定員20名に達し次第、締め切ります</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 申込みの流れ -->
+    <section class="bg-secondary">
+        <div class="container">
+            <div class="sec-title">
+                <span>Flow</span>
+                <h2 class="serif">お申込みの流れ</h2>
+            </div>
+
+            <div style="max-width: 650px; margin: 0 auto;">
+                <div class="flow-step">
+                    <div class="flow-num">1</div>
+                    <div>
+                        <div style="font-weight:500; color:#4a403a; margin-bottom:5px; font-size:1.1rem;">お申し込みフォーム送信</div>
+                        <div style="font-size:0.95rem; color:#776e65;">このページのボタンからフォームにて必要事項をご記入のうえ送信してください。</div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">2</div>
+                    <div>
+                        <div style="font-weight:500; color:#4a403a; margin-bottom:5px; font-size:1.1rem;">決済手続き（デポジットまたは一括）</div>
+                        <div style="font-size:0.95rem; color:#776e65;">自動返信メールにご案内する決済リンクより、お手続きをお願いいたします。</div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">3</div>
+                    <div>
+                        <div style="font-weight:500; color:#4a403a; margin-bottom:5px; font-size:1.1rem;">お席の確保完了</div>
+                        <div style="font-size:0.95rem; color:#776e65;">決済の確認ができ次第、お席の確保が完了となります。</div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">4</div>
+                    <div>
+                        <div style="font-weight:500; color:#4a403a; margin-bottom:5px; font-size:1.1rem;">5月・開講（PHASE 1 スタート）</div>
+                        <div style="font-size:0.95rem; color:#776e65;">いよいよ「わたしを解き放つ」6か月の旅がスタートします！</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- キャンセルポリシー -->
+            <div style="max-width: 650px; margin: 40px auto 0; background: #fffaf7; padding: 30px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 5px 15px var(--light-shadow);">
+                <h4 style="color: #635048; margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;" class="serif">【キャンセルポリシー】</h4>
+                <div style="color: #5d514a; font-size: 0.95rem; line-height: 1.8;">
+                    2週間前までのキャンセル ＝ 全額返金<br>
+                    1週間前 ＝ 半額返金<br>
+                    1週間以降 ＝ 返金不可
+                </div>
+                <p style="font-size: 0.85rem; color: #a47e62; margin-top: 12px; font-weight: 500;">（※18:00以降のご連絡は翌日付け扱いになります）</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="sec-title">
+                <span>FAQ</span>
+                <h2 class="serif">よくあるご質問</h2>
+            </div>
+
+            <div style="max-width: 750px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-q">AIを使ったことがなくても大丈夫ですか？</div>
+                    <div class="faq-a">大丈夫です。この講座はAI未経験者を対象に設計していますので、初歩からゆっくり丁寧にサポートします。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">スマートフォンだけでも参加できますか？</div>
+                    <div class="faq-a">オンラインはスマートフォンで参加可能です。オフライン（会場での実習）はパソコンまたはタブレットのご持参を推奨しております。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">全6か月の日程は最初から決まっていますか？</div>
+                    <div class="faq-a">PHASE 1（5・6月）の日程は確定しています。PHASE 2・3は、ご参加の皆様の進行に合わせ、前フェーズ修了の1か月前までにご案内します。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">50代でついていけますか？</div>
+                    <div class="faq-a">この講座はまさに50代の方のために設計しています。「できない」が「できる」に変わる体験を、ゆっくり丁寧に積み重ねていきますのでご安心ください。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- プロフィール -->
+    <section class="bg-floral">
+        <div class="container">
+            <div class="sec-title">
+                <span>Profile</span>
+                <h2 class="serif">主宰者</h2>
+            </div>
+
+            <div class="profile-box">
+                <div class="profile-img" style="padding: 0; overflow: hidden; background: transparent;">
+                    <img src="images/michiyo_pic.png" alt="みちよ" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="profile-text">
+                    <h3 class="serif">みちよ</h3>
+                    <div class="role">スピリチュアルカウンセラー / AIクリエイター</div>
+                    <p>長年、多くの方の心に寄り添い、真に「自分を生きる」ためのサポートをしてきました。これからの風の時代、スピリチュアルは「ただ待つ」ものではなく、自らの手で現実を形作る力へと変わります。<br><br>
+                    「AIは冷たいもの・難しいもの」ではありません。あなたの内なる世界観を引き出し、美しい形にしてくれる、とても優しくパワフルなツールです。一緒に、新しい扉を開いてみませんか？</p>
+                    <div style="margin-top: 20px;">
+                        <a href="https://angelswayhealing.com/" target="_blank" rel="noopener noreferrer" style="display: inline-block; color: var(--accent-hover); font-size: 0.95rem; font-weight: 500; border-bottom: 1px solid var(--accent-hover); padding-bottom: 2px; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">公式サイト（Angel's way healing）はこちら 〉</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-container" style="margin-top: 50px;">
+                <a href="https://ssl.formman.com/t/SWIk/" class="cta-button" target="_blank" rel="noopener noreferrer">
+                    講座へ申し込む
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div style="margin-bottom: 20px;">
+                <p style="margin-bottom: 5px;">お問い合わせ：みちよ事務局</p>
+                <p><a href="mailto:michiyo.jimukyoku.contact@gmail.com" style="text-decoration: underline; color: #a47e62; font-weight: 500; letter-spacing: 0.05em;">michiyo.jimukyoku.contact@gmail.com</a></p>
+            </div>
+            <p>&copy; わたしを解き放つ学校 - 50代からのクリエイティブ自由学</p>
+        </div>
+    </footer>
+
+</body>
+</html>
